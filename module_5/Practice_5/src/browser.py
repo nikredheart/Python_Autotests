@@ -5,7 +5,7 @@ import pytest
 
 
 @pytest.fixture()
-def set_up_browser():
+def browser():
        options = ChromeOptions()
        driver = Chrome(options=options)
        yield driver
