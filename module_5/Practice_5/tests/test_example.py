@@ -102,9 +102,9 @@ class TestExample:
         action_chains = webdriver.ActionChains(browser)
         time.sleep(3)
         action_chains.move_to_element(
-            browser.find_element(By.CSS_SELECTOR, '[aria-label="Sunday, 19 Jul 2026, 108. Commits."]')).perform()
+            browser.find_element(By.CSS_SELECTOR, '[aria-label="Sunday, 19 Jul 2026, 130. Commits."]')).perform()
         date = browser.find_element(By.CSS_SELECTOR, '[style="color: var(--fgColor-muted, var(--color-fg-muted)); font-weight: var(--base-text-weight-semibold); padding-bottom: 2px;"]')
         assert 'Week of 19 Jul, 2026' in date.text
 
         commits = date.find_element(By.XPATH, '(//strong)[3]')
-        assert '108' in commits.text
+        assert '130' in commits.text
