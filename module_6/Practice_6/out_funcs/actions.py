@@ -171,7 +171,7 @@ def search_test_5(self, browser, website):
 
     with allure.step('Курсор наведён на элемент'):
         action_chains.move_to_element(
-            browser.find_element(By.CSS_SELECTOR, '[aria-label="Sunday, 19 Jul 2026, 365. Commits."]')).perform()
+            browser.find_element(By.CSS_SELECTOR, '[aria-label="Sunday, 19 Jul 2026, 376. Commits."]')).perform()
     logging.info('Курсор наведён на элемент')
 
 
