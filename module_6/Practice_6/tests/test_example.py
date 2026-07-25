@@ -29,4 +29,4 @@ class TestExample:
     @allure.title('Проверка отображения требуемых значений в тултипе')
     def test_5(self, browser):
         search_test_5(self, browser, website='https://github.com/microsoft/vscode/graphs/commit-activity')  # noqa: F405
-        check_test_5(self, browser, required_date='Week of 19 Jul, 2026', required_commits='376')  # noqa: F405
+        check_test_5(self, browser, required_date='Week of 19 Jul, 2026', required_commits='484')  # noqa: F405

@@ -19,7 +19,7 @@ def search_test_1(self, browser, website):
 
 
 def check_test_1(self, browser):
-    indexes = [3, 4, 7, 11, 12, 14, 21, 23, 27, 28, 29, 30, 31, 32, 33, 34, 35, 42, 43, 44, 45, 49, 52, 53, 54]
+    indexes = [3, 4, 7, 11, 12, 14, 21, 23, 27, 28, 29, 30, 31, 32, 33, 34, 35, 42, 43, 44, 45, 50, 53, 54, 55]
 
     with allure.step('Проверка наличия заданного слова'):
         for index in indexes:
@@ -96,9 +96,8 @@ def check_test_3(self, browser):
     with allure.step('Проверка соответствия количества звёзд'):
         for index in indexes:
             checking_stars = (browser.find_element(By.XPATH,
-                                                   f'(//*[@class='
-                                                   f'"Repositories-module__stargazersLink_'f'_'
-                                                   f'KRMAf prc-Link-Link-9ZwDx"]//span)[{index}]'))
+                                                   f'(//*[@class="Repositories-module__stargazersLink_'
+                                                   f'_TJh1w prc-Link-Link-9ZwDx"]//span)[{index}]'))
             stars = checking_stars.text
             stars = stars[:3]
             stars = int(stars)
@@ -114,8 +113,8 @@ def search_test_4(self, browser, website):
     time.sleep(3)
     with allure.step('Открыто окно с параметрами'):
         browser.find_element(By.CSS_SELECTOR,
-                             '[class="programs-filter-mobile__button programs-filter-mobile__button-'
-                             '-mobile ui-icon-button ui-icon-button--filled-secondary ui-icon-button-'
+                             '[class="programs-filter-mobile__button programs-filter-mobile_'
+                             '_button--mobile ui-icon-button ui-icon-button--filled-secondary ui-icon-button-'
                              '-medium ui-icon-button--square"]').click()
     logging.info('Открыто окно с параметрами')
 
@@ -171,7 +170,7 @@ def search_test_5(self, browser, website):
 
     with allure.step('Курсор наведён на элемент'):
         action_chains.move_to_element(
-            browser.find_element(By.CSS_SELECTOR, '[aria-label="Sunday, 19 Jul 2026, 376. Commits."]')).perform()
+            browser.find_element(By.CSS_SELECTOR, '[aria-label="Sunday, 19 Jul 2026, 484. Commits."]')).perform()
     logging.info('Курсор наведён на элемент')
 
 
