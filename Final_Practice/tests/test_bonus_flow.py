@@ -9,7 +9,6 @@ class Test_Bonus_Flow:
     @allure.title('Переход на страницу бонусной программы')
     def test_bonus_1(self, browser):
         action_bonus_1(self, browser)  # noqa: F405
-        pass
 
     @allure.title('Оформление карты')
     def test_bonus_2(self, browser):

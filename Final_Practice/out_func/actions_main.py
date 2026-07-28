@@ -4,6 +4,7 @@ import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver import Keys
+from urllib.parse import quote
 import logging
 
 
@@ -11,6 +12,10 @@ def action_main_1(self, browser):
     with allure.step('Открыт сайт'):
         browser.get('https://pizzeria.skillbox.cc/')
     logging.info('Открыт сайт')
+
+    with allure.step('Проверка URL'):
+        assert browser.current_url == 'https://pizzeria.skillbox.cc/'
+    logging.info('Проверка URL')
 
 
 def action_main_2(self, browser):
@@ -29,6 +34,11 @@ def action_main_2(self, browser):
         browser.find_element(By.XPATH, '(//*[@data-product_id="425"])[1]').click()
     logging.info('Кликнута кнопка "В корзину"')
     time.sleep(2)
+    with allure.step('Проверка текста кнопки'):
+        button_1 = browser.find_element(By.XPATH, '(//*[@data-product_id="425"])[1]')
+        assert 'ПОДРОБНЕЕ' in button_1.text
+    logging.info('Проверка текста кнопки')
+    time.sleep(2)
 
     with allure.step('Наведён курсор на пиццу'):
         action_chains.move_to_element(browser.find_element(By.XPATH, '(//*[@width="300"])[6]')).perform()
@@ -38,6 +48,11 @@ def action_main_2(self, browser):
     with allure.step('Кликнута кнопка "В корзину"'):
         browser.find_element(By.XPATH, '(//*[@data-product_id="421"])[2]').click()
     logging.info('Кликнута кнопка "В корзину"')
+    time.sleep(2)
+    with allure.step('Проверка текста кнопки'):
+        button_2 = browser.find_element(By.XPATH, '(//*[@data-product_id="421"])[2]')
+        assert 'ПОДРОБНЕЕ' in button_2.text
+    logging.info('Проверка текста кнопки')
 
 
 def action_main_3(self, browser):
@@ -63,7 +78,11 @@ def action_main_3(self, browser):
     with allure.step('Кликнута кнопка "В корзину"'):
         browser.find_element(By.XPATH, '(//*[@href="?add-to-cart=419"])[2]').click()
     logging.info('Кликнута кнопка "В корзину"')
-    time.sleep(3)
+    time.sleep(2)
+    with allure.step('Проверка текста кнопки'):
+        button = browser.find_element(By.XPATH, '(//*[@href="?add-to-cart=419"])[2]')
+        assert 'ПОДРОБНЕЕ' in button.text
+    logging.info('Проверка текста кнопки')
 
 
 def action_main_4(self, browser):
@@ -85,6 +104,13 @@ def action_main_4(self, browser):
     with allure.step('Открыта страница с информацией'):
         browser.find_element(By.XPATH, '(//*[@width="300"])[7]').click()
     logging.info('Открыта страница с информацией')
+
+    with allure.step('Проверка URL'):
+        url = 'https://pizzeria.skillbox.cc/product/пицца-ветчина-и-грибы/'
+        browser.get(url)
+        expected_encode = quote(url, safe=':/?&=')
+        assert browser.current_url == expected_encode
+    logging.info('Проверка URL')
 
 
 def action_main_5(self, browser):
@@ -115,6 +141,7 @@ def action_main_5(self, browser):
     with allure.step('Выбрана опция'):
         browser.find_element(By.CSS_SELECTOR, '[value="55.00"]').click()
     logging.info('Выбрана опция')
+    time.sleep(1)
 
 
 def action_main_6(self, browser):
@@ -157,6 +184,10 @@ def action_main_7(self, browser):
     with allure.step('Открыта корзина'):
         browser.find_element(By.CSS_SELECTOR, '[href="http://pizzeria.skillbox.cc/cart/"]').click()
     logging.info('Открыта корзина')
+
+    with allure.step('Проверка URL'):
+        assert browser.current_url == 'https://pizzeria.skillbox.cc/cart/'
+    logging.info('Проверка URL')
 
 
 def action_main_8(self, browser):
@@ -337,6 +368,10 @@ def action_main_11(self, browser):
         browser.find_element(By.CSS_SELECTOR, '[href="http://pizzeria.skillbox.cc/product-'
                                               'category/menu/deserts/"]').click()
     logging.info('Кликнута кнопка "Десерты"')
+
+    with allure.step('Проверка URL'):
+        assert browser.current_url == 'https://pizzeria.skillbox.cc/product-category/menu/deserts/'
+    logging.info('Проверка URL')
 
 
 def action_main_12(self, browser):
@@ -829,7 +864,7 @@ def action_main_24(self, browser):
     logging.info('Открыта страница "мой аккаунт"')
 
     with allure.step('Заполнено поле "Имя"'):
-        browser.find_element(By.CSS_SELECTOR, '[name="username"]').send_keys('Andrew Testermansen')
+        browser.find_element(By.CSS_SELECTOR, '[name="username"]').send_keys('Andrew Testerman')
     logging.info('Заполнено поле "Имя"')
 
     with allure.step('Заполнено поле "Пароль"'):
@@ -865,6 +900,10 @@ def action_main_24(self, browser):
     with allure.step('Отмечен чекбокс'):
         browser.find_element(By.CSS_SELECTOR, '[id="terms"]').click()
     logging.info('Отмечен чекбокс')
+
+    with allure.step('Проверка отметки чекбокса'):
+        browser.find_element(By.CSS_SELECTOR, '[class="form-row validate-required woocommerce-validated"]')
+    logging.info('роверка отметки чекбокса')
 
 
 def action_main_25(self, browser):

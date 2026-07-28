@@ -17,6 +17,10 @@ def action_bonus_1(self, browser):
         browser.find_element(By.CSS_SELECTOR, '[href="http://pizzeria.skillbox.cc/bonus/"]').click()
     logging.info('Открыта страница "Бонусная программа"')
 
+    with allure.step('Проверка URL'):
+        assert browser.current_url == 'https://pizzeria.skillbox.cc/bonus/'
+    logging.info('Проверка URL')
+
 
 def action_bonus_2(self, browser):
     with allure.step('Открыт сайт'):
