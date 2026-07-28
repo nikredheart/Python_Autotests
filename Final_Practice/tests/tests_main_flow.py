@@ -91,7 +91,7 @@ class Test_Main_Flow:
         action_main_21(self, browser)  # noqa: F405
 
     @allure.title('Выбор даты оформления заказа')
-    def test_main_22(self, browser):  # ТЕСТ НЕ СРАБОТАЕТ, ЭЛЕМЕНТ НЕ СОДЕРЖиТ ИНФОРМАЦИЮ О УКАЗАННОМ ЗНАЧЕНИИ
+    def test_main_22(self, browser):  # ТЕСТ НЕ СРАБОТАЕТ, ЭЛЕМЕНТ НЕ СОДЕРЖИТ ИНФОРМАЦИЮ О УКАЗАННОМ ЗНАЧЕНИИ
         action_main_22(self, browser)  # noqa: F405
 
     @allure.title('Выбор способа оплаты ("Оплата при доставке")')
