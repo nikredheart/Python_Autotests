@@ -38,4 +38,4 @@ conda activate python-autotests-basic
 ## Команда проекта
 Предложения и замечания принимаются по адресу nikolay_pv@internet.ru
 
-- [Николай Павлышак](tg://resolve?domain=aexving) — Студент-тестировщик
+- [Николай Павлышак](tg://resolve?domain=aexving) - Студент-тестировщик
